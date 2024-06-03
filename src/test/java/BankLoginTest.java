@@ -15,6 +15,7 @@ import java.util.HashMap;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class BankLoginTest {
@@ -74,9 +75,12 @@ public class BankLoginTest {
    }
 
     @Test
-    public void badUserLoginToBank() {
-        sleep(5000);
-        $("#user-greeting").shouldHave(text("Hello Artem!"));
+    void userCanLoadStatementForLastMonth() {
+        open("/bank/overview");
+
+        $("#accounts .account a").click();
+        $(".page-header").shouldHave(text("Statement"));
+        $("#defined-periods").find(byText("Beginning of last month until today")).click();
     }
 }
 
