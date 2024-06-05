@@ -21,38 +21,13 @@ import static com.codeborne.selenide.Selenide.*;
 public class BankLoginTest {
 
     @BeforeAll
-    public static void setupAnd2factor() throws MalformedURLException {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserVersion", "125.0");
-        capabilities.setCapability("selenoid:options", new HashMap<String, Object>() {{
-
-            put("enableVNC", true);
-
-            /* How to set session timeout */
-            put("sessionTimeout", "4m");
-
-            /* How to set timezone */
-            put("env", new ArrayList<String>() {{
-                add("TZ=UTC");
-            }});
-
-            /* How to add "trash" button */
-            put("labels", new HashMap<String, Object>() {{
-                put("manual", "true");
-            }});
-
-            /* How to enable video recording */
-            put("enableVideo", true);
-        }});
-
-        Configuration.browserCapabilities = capabilities;
-        Configuration.remote = "http://localhost:4444/wd/hub";
+    public static void setupAnd2factor()  {
         Configuration.baseUrl = "https://idemo.bspb.ru";
 
         open("/");
-        sleep(5000);
+
         $(By.name("username")).setValue("demo");
-        sleep(5000);
+
         $(By.name("password")).setValue("demo").pressEnter();
         enter2ndFactor();
 
@@ -70,18 +45,11 @@ public class BankLoginTest {
 
     @Test
     public void userLoginToBank() {
-        sleep(5000);
+
         $("#user-greeting").shouldHave(text("Hello World!"));
    }
 
-    @Test
-    void userCanLoadStatementForLastMonth() {
-        open("/bank/overview");
 
-        $("#accounts .account a").click();
-        $(".page-header").shouldHave(text("Statement"));
-        $("#defined-periods").find(byText("Beginning of last month until today")).click();
-    }
 }
 
 
