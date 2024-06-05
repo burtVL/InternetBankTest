@@ -32,6 +32,8 @@ jobs:
             ${{ runner.os }}-gradle-
 
       # Сборка проекта и запуск тестов
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
 
