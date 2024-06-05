@@ -44,16 +44,15 @@ jobs:
       - name: Test with Gradle
         run: ./gradlew test
 
-      # Генерация отчетов Allure (предполагается, что в проекте уже настроена интеграция с Allure)
+
       - name: Generate Allure report
         run: ./gradlew allureReport
 
-      # Публикация отчетов Allure на GitHub Pages или другой платформе
-      # Этот шаг может потребовать дополнительной настройки в зависимости от платформы
+
       - name: Publish Allure report
         uses: actions/upload-artifact@v2
         with:
           name: allure-report
           path: build/reports/allure-report
 
-    # Дополнительно можно добавить шаги для интеграции с другими сервисами отчетов о тестировании
+
