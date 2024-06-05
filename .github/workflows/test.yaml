@@ -35,8 +35,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Set up ChromeDriver
-        uses: browser-actions/setup-chromedriver@latest
+
 
       - name: Build with Gradle
         run: ./gradlew build
