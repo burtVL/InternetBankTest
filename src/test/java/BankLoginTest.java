@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -22,12 +23,11 @@ public class BankLoginTest {
 
     @BeforeAll
     public static void setupAnd2factor()  {
+        SelenideLogger.addListener("allure",new AllureSelenide());
         Configuration.baseUrl = "https://idemo.bspb.ru";
 
         open("/");
-
         $(By.name("username")).setValue("demo");
-
         $(By.name("password")).setValue("demo").pressEnter();
         enter2ndFactor();
 

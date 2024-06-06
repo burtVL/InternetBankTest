@@ -1,12 +1,27 @@
 plugins {
     id 'java'
-    id "io.qameta.allure" version "2.11.2"
+    id ("io.qameta.allure") version "2.11.2"
 }
 
 
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
+
+allure {
+    report {
+        version.set("2.27.0")
+    }
+    adapter {
+        aspectjVersion = '1.9.22.1'
+        frameworks{
+            junit5 {
+                adapterVersion.set("2.27.0")
+            }
+        }
+    }
+
+}
 
 repositories {
     mavenCentral()
@@ -17,6 +32,8 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'com.codeborne:selenide:7.3.1'
     testRuntimeOnly('io.goodforgod:slf4j-simple-logger:2.0.0')
+    testImplementation('io.qameta.allure:allure-selenide:2.27.0')
+    runtimeOnly ('org.aspectj:aspectjweaver:1.9.22.1')
 
 
 }
