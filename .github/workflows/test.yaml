@@ -12,43 +12,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
           java-version: '17'
           distribution: 'adopt'
-
-      # Кэширование зависимостей Gradle
-      - name: Cache Gradle packages
-        uses: actions/cache@v2
+      - run: ./gradlew clean test
+      - name: Copy History
+        uses: actions/checkout@v2
+        if: always()
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('*/*.gradle*', '*/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      # Сборка проекта и запуск тестов
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Build with Gradle
-        run: ./gradlew build
-
-      - name: Test with Gradle
-        run: ./gradlew test
-
-
-      - name: Generate Allure report
-        run: ./gradlew allureReport
-
-      - name: Publish Allure report
-        uses: actions/upload-artifact@v2
+          ref: gh-pages
+          path: gh-pages
+      - name: Build Report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
         with:
-          name: allure-report
-          path: build/reports/allure-report
+          allure_results: build/allure-results
+          allure_history: allure-history
+          keep_reports: 20
+      - name: Publish Report
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
+
 
 
