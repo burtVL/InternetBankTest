@@ -19,6 +19,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
+      - name: Start selenoid
+        uses: Xotabu4/selenoid-github-action@v2
       - run: ./gradlew clean test
       - name: Copy History
         uses: actions/checkout@v2
