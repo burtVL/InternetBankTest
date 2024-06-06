@@ -1,0 +1,14 @@
+
+f
+java:S5786,"Remove this 'public' modifier.(ë¾Àşşÿÿÿÿ8ÁÏøõş1J$a98fa0de-b15c-48d8-8255-93403aa42350
+Œ
+java:S1128"DRemove this unused import 'org.openqa.selenium.MutableCapabilities'.(”Øë¹øÿÿÿÿ8ËÏøõş1J$74f70594-6772-4e88-bb8d-4da0b3e87287
+
+java:S1128"ERemove this unused import 'org.openqa.selenium.chrome.ChromeOptions'.(ÿ¾Ïóüÿÿÿÿ8ËÏøõş1J$c8889001-ca26-41df-bbcc-bd6c547d7433
+
+java:S1128	"KRemove this unused import 'org.openqa.selenium.remote.DesiredCapabilities'.(¦ò©Š8ËÏøõş1J$aa6800f2-074f-425b-9a1f-62b3dfef6086
+Š
+java:S1128
+"GRemove this unused import 'org.openqa.selenium.remote.RemoteWebDriver'.(ú£Ú—8ÌÏøõş1J$f7935ebd-3a36-42c4-91ac-9055dc6b7c6d
+‡
+java:S1128"DRemove this unused import 'com.codeborne.selenide.Selectors.byText'.(‰îÆõ8ÍÏøõş1J$a1530c8b-f946-46cc-a1cf-0977833faf77
