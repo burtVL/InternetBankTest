@@ -13,7 +13,7 @@ public class BankLoginTest extends BaseTest {
 
     @BeforeAll
     public static void setupAnd2factor()  {
-        Configuration.remote = "true";
+        Configuration.remote = "http://localhost:4444/wd/hub";
         SelenideLogger.addListener("allure",new AllureSelenide());
         Configuration.baseUrl = "https://idemo.bspb.ru";
 
