@@ -12,11 +12,11 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class BankLoginTest {
+public class BankLoginTest extends BaseTest {
 
     @BeforeAll
     public static void setupAnd2factor()  {
-        Configuration.remote = "http://localhost:5678/wd/hub";
+        //Configuration.remote = "true";
         SelenideLogger.addListener("allure",new AllureSelenide());
         Configuration.baseUrl = "https://idemo.bspb.ru";
 
