@@ -21,7 +21,7 @@ jobs:
           distribution: 'adopt'
       - name: Start selenoid
         uses: Xotabu4/selenoid-github-action@v2
-      - run: ./gradlew clean test
+      - run: ./gradlew test
       - name: Copy History
         uses: actions/checkout@v2
         if: always()
