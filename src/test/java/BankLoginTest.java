@@ -13,11 +13,11 @@ public class BankLoginTest extends BaseTest {
 
     @BeforeAll
     public static void setupAnd2factor()  {
-
+        //Configuration.remote = String.valueOf(true);
         SelenideLogger.addListener("allure",new AllureSelenide());
         Configuration.baseUrl = "https://idemo.bspb.ru";
 
-        open("https://idemo.bspb.ru");
+        open("/");
         $(By.name("username")).setValue("demo");
         $(By.name("password")).setValue("demo").pressEnter();
         enter2ndFactor();
@@ -35,7 +35,7 @@ public class BankLoginTest extends BaseTest {
     }
 
     @Test
-    public void userLoginToBank() {
+     void userLoginToBank() {
 
         $("#user-greeting").shouldHave(text("Hello World!"));
    }
