@@ -16,7 +16,7 @@ public class BankLoginTest {
 
     @BeforeAll
     public static void setupAnd2factor()  {
-        Configuration.remote = "http://localhost:4444/wd/hub";
+        Configuration.remote = "http://localhost:5678/wd/hub";
         SelenideLogger.addListener("allure",new AllureSelenide());
         Configuration.baseUrl = "https://idemo.bspb.ru";
 
