@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 public class BankLoginTest extends BaseTest {
 
@@ -17,21 +18,33 @@ public class BankLoginTest extends BaseTest {
         SelenideLogger.addListener("allure",new AllureSelenide());
         Configuration.baseUrl = "https://idemo.bspb.ru";
 
-        open("/");
-        $(By.name("username")).setValue("demo");
-        $(By.name("password")).setValue("demo").pressEnter();
+        step("Open auth page", () ->{
+            open("/");
+        });
+        step("Set username demo", () ->{
+            $(By.name("username")).setValue("demo");
+        });
+        step("Set password demo and click enter", () ->{
+            $(By.name("password")).setValue("demo").pressEnter();
+        });
+
         enter2ndFactor();
 
     }
 
     public static void enter2ndFactor() {
-        $("#otp-code-text").shouldBe(visible);
-        if ($("#login-crypto-button").isDisplayed()) {
-            $("#login-crypto-button").click();
-        }
-        else {
-            $(By.name("otpCode")).val("0000").pressEnter();
-        }
+        step("Should be 2ndfactor window", () ->{
+            $("#otp-code-text").shouldBe(visible);
+        });
+        step("Set sms code 0000 and enter confirm button", () -> {
+            if ($("#login-crypto-button").isDisplayed()) {
+                $("#login-crypto-button").click();
+            }
+            else {
+                $(By.name("otpCode")).val("0000").pressEnter();
+            }
+        });
+
     }
 
     @Test
