@@ -14,6 +14,6 @@ public class BaseTest implements BeforeAllCallback {
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = "http://localhost:5678/wd/hub";
+        Configuration.remote = "http://localhost:4444/wd/hub";
     }
 }

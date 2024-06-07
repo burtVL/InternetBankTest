@@ -21,3 +21,5 @@ w
 G.idea/sonarlint/issuestore/a/6/a60e2382fd0c34cb06177a3d7034264e22531192,f\9\f9b988d2a739571960ab5d678a359989bef5417a
 K
 src/test/java/BaseTest.java,4\3\43e9f450cc1d05e1c35b5c2fa4533e9611ac1276
+?
+settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
