@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Fri Jun 07 19:11:09 GMT 2024","Fri Jun 07 19:11:09 GMT 2024","63","","BankLoginTest","","BankLoginTest","userLoginToBank","userLoginToBank()",""
+"passed","Tue Jun 11 09:30:54 GMT 2024","Tue Jun 11 09:30:54 GMT 2024","110","","BankLoginTest","","BankLoginTest","userLoginToBank","userLoginToBank()",""
